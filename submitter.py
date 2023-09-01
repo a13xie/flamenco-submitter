@@ -12,7 +12,7 @@ job_types = []
 for entry in job_types_json["job_types"]:
     job_types.append(entry["name"])
 
-if argv[0] is in job_types:
+if argv[0] in job_types:
     print("Nice, I found this job type!")
 
 bpy.data.scenes["Scene"].flamenco_job_type
