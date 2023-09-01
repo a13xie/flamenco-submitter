@@ -1,15 +1,6 @@
 # flamenco-submitter
 The goal of this project is to create a simple script to submit render jobs to Flamenco. Meant to be used in CI pipelines.
 
-## Addon installation, setting the Flamenco server URL
-
-```
-bpy.ops.preferences.addon_install(filepath="/smt")
-bpy.ops.preferences.addon_enable(module='flamenco')
-bpy.context.preferences.addons['flamenco'].preferences['manager_url']
-bpy.ops.wm.save_userpref()
-```
-
 ## Fetch job types, set job settings, submit job
 
 ```
