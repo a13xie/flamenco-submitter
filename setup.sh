@@ -18,5 +18,5 @@ bpy.ops.wm.save_userpref()
 
 EOF
 
-set -e
+set +e
 echo "Addon installed, enabled and configured!"
