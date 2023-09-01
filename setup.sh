@@ -5,7 +5,7 @@
 set -xe
 
 # Download the Flamenco addon
-wget $1/flamenco3-addon.zip -O /tmp/flamenco.zip
+curl $1/flamenco3-addon.zip -o /tmp/flamenco.zip
 
 # Launch Blender with the install script
 blender -b -y --python-exit-code 1 --python-console << EOF
