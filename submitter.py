@@ -18,6 +18,3 @@ else:
   print("Doing full render")
 
 print(bpy.ops.flamenco.submit_job("INVOKE_DEFAULT"))
-
-time.sleep(15)
-exit(0)
