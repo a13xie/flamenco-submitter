@@ -1,6 +1,7 @@
 import bpy
 import json
 import sys
+import time
 
 argv = sys.argv
 
@@ -18,4 +19,5 @@ else:
 
 print(bpy.ops.flamenco.submit_job("INVOKE_DEFAULT"))
 
+time.sleep(15)
 exit(0)
