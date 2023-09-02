@@ -3,16 +3,17 @@ import json
 
 import sys
 argv = sys.argv
-argv = argv[argv.index("--") + 1:]  # get all args after "--"
+
+name = "smt"
 
 bpy.ops.flamenco.fetch_job_types()
 
-job_types_json = json.loads(bpy.data.scenes["Scene"].flamenco_available_job_types_json)
-job_types = []
-for entry in job_types_json["job_types"]:
-    job_types.append(entry["name"])
+if "preview" in argv:
+  print("Rendering preview")
+  bpy.data.scenes["Scene"].render.resolution_percentage = 25
+  bpy.data.scenes["Scene"].cycles.samples = bpy.data.scenes["Scene"].cycles.samples // 4
+  name += "-preview"
+else:
+  print("Doing full render")
 
-if argv[0] in job_types:
-    print("Nice, I found this job type!")
-
-#bpy.data.scenes["Scene"].flamenco_job_type
+bpy.ops.flamenco.submit_job(job_name=name, ignore_version_mismatch=False)
