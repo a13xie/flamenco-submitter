@@ -1,7 +1,7 @@
 import bpy
 import json
-
 import sys
+
 argv = sys.argv
 
 name = "smt"
@@ -16,4 +16,6 @@ if "preview" in argv:
 else:
   print("Doing full render")
 
-bpy.ops.flamenco.submit_job(job_name=name, ignore_version_mismatch=False)
+print(bpy.ops.flamenco.submit_job("INVOKE_DEFAULT"))
+
+exit(0)
