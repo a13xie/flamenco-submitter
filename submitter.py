@@ -2,8 +2,6 @@ import bpy
 import json
 import os
 
-argv = sys.argv
-
 name = os.environ.get('PROJECT_NAME')
 
 bpy.ops.flamenco.fetch_job_types()
