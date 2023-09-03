@@ -10,10 +10,10 @@ cd $CI_PROJECT_DIR
 
 if git status
 then
-  files=(git diff-tree --no-commit-id --name-only -r $CI_COMMIT_SHA)
+  files=($(git diff-tree --no-commit-id --name-only -r $CI_COMMIT_SHA))
 elif hg status
 then
-  files=(hg status -n --change tip $CI_COMMIT_SHA)
+  files=($(hg status -n --change tip $CI_COMMIT_SHA))
 fi
 
 printf '%s\n' "${files[@]}"
