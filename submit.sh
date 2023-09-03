@@ -17,6 +17,7 @@ fi
 blendfiles=()
 
 for file in "${!files[@]}"
+do
   if [[ $file == *"blends/"* ]]
   then
     blendfiles+=($file)
@@ -24,6 +25,7 @@ for file in "${!files[@]}"
 done
 
 for file in "${!blendfiles[@]}"
+do
   if [ -f $file ] && [ $file == *".blend"* ]
   then
     echo "Submitting $file"
