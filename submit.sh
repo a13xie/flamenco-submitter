@@ -27,8 +27,6 @@ do
   fi
 done
 
-set -x
-
 for file in "${blendfiles[@]}"
 do
   if [[ $file == *".blend"* ]] && [ -f $file ]
