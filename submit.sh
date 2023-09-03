@@ -4,6 +4,8 @@
 # Get a list of changed files, iterate through them and submit each to Flamenco
 # Needs logic for killing off Blender instances since Blender doesn't quit after submission
 
+set -e
+
 cd $CI_PROJECT_DIR
 
 if git status
