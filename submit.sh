@@ -17,6 +17,9 @@ then
   files=($(hg status -n --change tip $CI_COMMIT_SHA))
 fi
 
+echo "Changed files:"
+echo ${files[@]}
+
 blendfiles=()
 
 for file in "${files[@]}"
@@ -26,6 +29,9 @@ do
     blendfiles+=($file)
   fi
 done
+
+echo "Blend files:"
+echo ${blendfiles[@]}
 
 set -x
 
