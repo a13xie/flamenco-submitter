@@ -17,6 +17,9 @@ then
   files=($(hg status -n --change tip $CI_COMMIT_SHA))
 fi
 
+echo "Commit:"
+echo "$CI_COMMIT_SHA"
+
 echo "Changed files:"
 echo ${files[@]}
 
