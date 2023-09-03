@@ -15,6 +15,9 @@ elif hg status
 then
   echo "Detected Mercurial"
   files=($(hg status -n --change $CI_COMMIT_SHA))
+else
+  echo "Could not detect VCS type!"
+  exit 1
 fi
 
 blendfiles=()
