@@ -21,7 +21,7 @@ printf '%s\n' "${files[@]}"
 blendfiles=()
 
 echo "Iteration"
-for file in "${!files[@]}"
+for file in "${files[@]}"
 do
   if [[ $file == *"blends/"* ]]
   then
@@ -33,7 +33,7 @@ done
 echo "Files in blender folder:"
 printf '%s\n' "${blendfiles[@]}"
 
-for file in "${!blendfiles[@]}"
+for file in "${blendfiles[@]}"
 do
   if [ -f $file ] && [ $file == *".blend"* ]
   then
