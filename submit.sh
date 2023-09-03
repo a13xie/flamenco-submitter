@@ -29,7 +29,7 @@ set -x
 
 for file in "${blendfiles[@]}"
 do
-  if [ $file == *".blend"* ]
+  if [[ $file == *".blend"* ]]
   then
     echo "Submitting $file"
   fi
