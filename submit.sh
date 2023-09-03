@@ -14,7 +14,7 @@ then
 elif hg status
 then
   echo "Detected Mercurial"
-  files=($(hg status -n --change tip $CI_COMMIT_SHA))
+  files=($(hg status -n --change $CI_COMMIT_SHA))
 fi
 
 echo "Commit:"
