@@ -28,6 +28,9 @@ do
   fi
 done
 
+echo "Files in blender folder:"
+printf '%s\n' "${blendfiles[@]}"
+
 for file in "${!blendfiles[@]}"
 do
   if [ -f $file ] && [ $file == *".blend"* ]
