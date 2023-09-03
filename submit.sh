@@ -15,11 +15,8 @@ then
   files=($(hg status -n --change tip $CI_COMMIT_SHA))
 fi
 
-printf '%s\n' "${files[@]}"
-
 blendfiles=()
 
-echo "Iteration"
 for file in "${files[@]}"
 do
   if [[ $file == *"blends/"* ]]
@@ -32,8 +29,10 @@ set -x
 
 for file in "${blendfiles[@]}"
 do
-  if [ -f $file ] && [ $file == *".blend"* ]
+  if [ $file == *".blend"* ]
   then
     echo "Submitting $file"
   fi
 done
+
+# startx /usr/bin/blender "--python-exit-code 1 $CI_PROJECT_DIR/untitled.blend --python /tmp/submitter/submitter.py" & sleep 60 && killall blender
