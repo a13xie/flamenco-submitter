@@ -4,7 +4,7 @@
 # Get a list of changed files, iterate through them and submit each to Flamenco
 # Needs logic for killing off Blender instances since Blender doesn't quit after submission
 
-set -e
+set -x
 
 cd $CI_PROJECT_DIR
 
@@ -20,10 +20,12 @@ printf '%s\n' "${files[@]}"
 
 blendfiles=()
 
+echo "Iteration"
 for file in "${!files[@]}"
 do
   if [[ $file == *"blends/"* ]]
   then
+    echo "$file"
     blendfiles+=($file)
   fi
 done
