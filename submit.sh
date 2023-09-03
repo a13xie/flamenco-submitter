@@ -14,6 +14,8 @@ then
   files=(hg status -n --change tip $CI_COMMIT_SHA)
 fi
 
+printf '%s\n' "${files[@]}"
+
 blendfiles=()
 
 for file in "${!files[@]}"
