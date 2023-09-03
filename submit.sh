@@ -31,7 +31,7 @@ set -x
 
 for file in "${blendfiles[@]}"
 do
-  if [[ $file == *".blend"* ]]
+  if [[ $file == *".blend"* ]] && [ -f $file ]
   then
     echo "Submitting $file"
     PROJECT_NAME=$file PREVIEW=true startx /usr/bin/blender "--python-exit-code 1 $file --python /tmp/submitter/submitter.py" -- -logverbose 0 & sleep 60 && killall blender
