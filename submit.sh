@@ -17,12 +17,6 @@ then
   files=($(hg status -n --change $CI_COMMIT_SHA))
 fi
 
-echo "Commit:"
-echo "$CI_COMMIT_SHA"
-
-echo "Changed files:"
-echo ${files[@]}
-
 blendfiles=()
 
 for file in "${files[@]}"
@@ -33,9 +27,6 @@ do
   fi
 done
 
-echo "Blend files:"
-echo ${blendfiles[@]}
-
 set -x
 
 for file in "${blendfiles[@]}"
@@ -43,7 +34,8 @@ do
   if [[ $file == *".blend"* ]]
   then
     echo "Submitting $file"
+    PROJECT_NAME=$file PREVIEW=true startx /usr/bin/blender "--python-exit-code 1 $file --python /tmp/submitter/submitter.py" -- -logverbose 0 &> & sleep 60 && killall blender
   fi
 done
 
-# startx /usr/bin/blender "--python-exit-code 1 $CI_PROJECT_DIR/untitled.blend --python /tmp/submitter/submitter.py" & sleep 60 && killall blender
+
