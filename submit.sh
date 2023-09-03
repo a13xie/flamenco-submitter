@@ -9,9 +9,11 @@ cd $CI_PROJECT_DIR
 
 if git status
 then
+  echo "Detected git"
   files=($(git diff-tree --no-commit-id --name-only -r $CI_COMMIT_SHA))
 elif hg status
 then
+  echo "Detected Mercurial"
   files=($(hg status -n --change tip $CI_COMMIT_SHA))
 fi
 
